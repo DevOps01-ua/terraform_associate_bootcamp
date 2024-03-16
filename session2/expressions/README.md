@@ -28,6 +28,55 @@ variable "example_bool" {
   type = bool
   default = true
 }
+# Object
+variable "vm_config" {
+  type = object({
+    name     = string
+    image    = string
+    size     = string
+    location = string
+  })
+  default = {
+    name     = "myVM"
+    image    = "ubuntu-18.04"
+    size     = "Standard_B2s"
+    location = "East US"
+  }
+}
+
+# Complex Object
+variable "vms_config" {
+  type = list(object({
+    name     = string
+    image    = string
+    size     = string
+    location = string
+    tags     = map(string)
+  }))
+  default = [
+    {
+      name     = "vm1"
+      image    = "ubuntu-18.04"
+      size     = "Standard_B2s"
+      location = "East US"
+      tags     = {
+        project = "Project1"
+        env     = "dev"
+      }
+    },
+    {
+      name     = "vm2"
+      image    = "windows-2019"
+      size     = "Standard_B2s"
+      location = "West Europe"
+      tags     = {
+        project = "Project2"
+        env     = "prod"
+      }
+    }
+  ]
+}
+
 ```
 
 ### 3. String and Templates
