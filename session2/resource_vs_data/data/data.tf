@@ -1,6 +1,8 @@
-data "aws_vpc" "dev_vpc" {
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
   filter {
-    name   = "tag:name"
-    values = ["dev-vpc"]
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
   }
 }

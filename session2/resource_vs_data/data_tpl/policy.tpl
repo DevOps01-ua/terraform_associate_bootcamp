@@ -2,20 +2,14 @@
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Effect": "Allow",
       "Action": "logs:CreateLogGroup",
-      "Resource": "arn:aws:logs:${region}:${account_id}:*",
-      "Effect": "Allow"
+      "Resource": "arn:aws:logs:*:*:*"
     },
     {
-      "Action": [
-        "dynamodb:DeleteItem",
-        "dynamodb:GetItem",
-        "dynamodb:PutItem",
-        "dynamodb:Scan",
-        "dynamodb:UpdateItem"
-      ],
-      "Resource": "arn:aws:dynamodb:${region}:${account_id}:table/${table_name}",
-      "Effect": "Allow"
+      "Effect": "Allow",
+      "Action": "ec2:Describe*",
+      "Resource": "*"
     }
   ]
 }

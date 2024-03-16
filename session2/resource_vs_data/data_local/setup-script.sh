@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Hello, Terraform!"
+echo "Hello, World!" > /var/tmp/hello.txt

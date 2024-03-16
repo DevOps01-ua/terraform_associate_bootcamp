@@ -1,9 +1,4 @@
-resource "aws_subnet" "dev_subnet" {
-  vpc_id            = data.aws_vpc.dev_vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
-
-  tags = {
-    Name = "dev-subnet"
-  }
+resource "aws_instance" "example" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
 }
