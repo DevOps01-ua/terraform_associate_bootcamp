@@ -137,6 +137,15 @@ locals {
 locals {
   uppercase_name = upper("terraform")
 }
+abs(-42)  # Returns 42
+ceil(4.3)  # Returns 5
+format("Hello, %s!", "World")  # Returns "Hello, World!"
+replace("Hello, Terraform!", "Terraform", "World")  # Returns "Hello, World!"
+length(["one", "two", "three"])  # Returns 3
+element(["a", "b", "c"], 1)  # Returns "b"
+timestamp()  # Example: "2020-10-06T15:04:05Z"
+tonumber("42")  # Returns 42
+tostring(42)  # Returns "42"
 ```
 
 ### 8. Conditional Expressions
