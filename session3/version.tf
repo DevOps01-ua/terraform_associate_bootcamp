@@ -6,13 +6,6 @@ terraform {
     }
   }
 
-  cloud {
-    organization = "terraform_associate_course_devops01"
-
-    workspaces {
-      name = "test-cli-workspace"
-    }
-  }
 
   required_version = ">= 1.5.0"
 }
