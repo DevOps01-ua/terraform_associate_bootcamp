@@ -8,3 +8,9 @@ resource "aws_vpc" "sample_vpc" {
     Terraform = "True"
   }
 }
+
+
+module "devops01" {
+  source  = "app.terraform.io/terraform_associate_course_devops01/devops01/aws"
+  version = "0.2.0-alpha"
+}
