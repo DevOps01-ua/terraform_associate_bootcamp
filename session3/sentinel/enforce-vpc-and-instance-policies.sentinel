@@ -1,0 +1,31 @@
+import "tfplan"
+
+# Function to validate VPC configuration
+validate_vpc = func() {
+    for tfplan.resources.aws_vpc as _, instances {
+        for instances as _, instance {
+            if instance.applied.cidr_block != "10.0.0.0/16" {
+                return false
+            }
+        }
+    }
+    return true
+}
+
+# Function to validate instance configuration
+validate_instance = func() {
+    for tfplan.module_calls.devops01 as _, modules {
+        for modules.resources.aws_instance as _, instances {
+            for instances as _, instance {
+                if instance.applied.instance_type != "t2.micro" {
+                    return false
+                }
+            }
+        }
+    }
+    return true
+}
+
+main = rule {
+    validate_vpc() and validate_instance()
+}
