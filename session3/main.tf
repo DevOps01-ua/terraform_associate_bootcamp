@@ -4,6 +4,7 @@ resource "aws_vpc" "sample_vpc" {
   enable_dns_hostnames = true # Internal host name
 
   tags = {
-    Name = "sample-vpc"
+    Name = "VPC"
+    Terraform = "True"
   }
 }
